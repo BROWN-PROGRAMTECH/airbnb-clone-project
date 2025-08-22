@@ -227,4 +227,72 @@ Users receive notifications for important actions, such as booking confirmations
 
 ### 8. Admin Dashboard  
 Admins can oversee platform activity, including managing users, monitoring bookings, and handling disputes. This ensures the system remains fair, reliable, and well-governed.  
+## API Security
+
+Ensuring the security of backend APIs is critical in an application like an Airbnb Clone, where sensitive data (user details, payments, bookings) is processed. The following security measures will be implemented:
+
+- **Authentication**: All endpoints will be protected using token-based authentication (e.g., JWT). This ensures that only verified users can access protected resources such as creating bookings or making payments.  
+  *Importance*: Protects user accounts and prevents unauthorized access.
+
+- **Authorization**: Role-based access control (RBAC) will be enforced so that users can only perform actions they are permitted to (e.g., only property owners can edit their listings).  
+  *Importance*: Prevents malicious or accidental actions from users without sufficient privileges.
+
+- **Rate Limiting**: To prevent abuse and brute-force attacks, APIs will implement request rate limiting per user or IP.  
+  *Importance*: Protects against denial-of-service (DoS) attacks and improves system stability.
+
+- **Data Validation & Sanitization**: All inputs will be validated using strict schemas to prevent injection attacks.  
+  *Importance*: Ensures system reliability and defends against SQL injection, XSS, and other attacks.
+
+- **Secure Payments**: Payment endpoints will use HTTPS and integrate with secure payment gateways to handle financial data safely.  
+  *Importance*: Protects sensitive financial details and ensures compliance with security standards.
+
+---
+
+## REST API Endpoints
+
+### Users
+- `GET /users/` - List all users  
+- `POST /users/` - Create a new user  
+- `GET /users/{user_id}/` - Retrieve a specific user  
+- `PUT /users/{user_id}/` - Update a specific user  
+- `DELETE /users/{user_id}/` - Delete a specific user  
+
+### Properties
+- `GET /properties/` - List all properties  
+- `POST /properties/` - Create a new property  
+- `GET /properties/{property_id}/` - Retrieve a specific property  
+- `PUT /properties/{property_id}/` - Update a specific property  
+- `DELETE /properties/{property_id}/` - Delete a specific property  
+
+### Bookings
+- `GET /bookings/` - List all bookings  
+- `POST /bookings/` - Create a new booking  
+- `GET /bookings/{booking_id}/` - Retrieve a specific booking  
+- `PUT /bookings/{booking_id}/` - Update a specific booking  
+- `DELETE /bookings/{booking_id}/` - Delete a specific booking  
+
+### Payments
+- `POST /payments/` - Process a payment  
+
+### Reviews
+- `GET /reviews/` - List all reviews  
+- `POST /reviews/` - Create a new review  
+- `GET /reviews/{review_id}/` - Retrieve a specific review  
+- `PUT /reviews/{review_id}/` - Update a specific review  
+- `DELETE /reviews/{review_id}/` - Delete a specific review  
+
+## CI/CD Pipeline
+
+Continuous Integration and Continuous Deployment (CI/CD) pipelines are automated workflows that streamline the process of building, testing, and deploying the project. They ensure that every change pushed to the repository is validated, tested, and deployed consistently, reducing human error and speeding up delivery.
+
+For this project, a CI/CD pipeline will help:
+- Automatically run tests to ensure code quality and stability.  
+- Build and package the application using containerization (e.g., Docker).  
+- Deploy updates seamlessly to staging or production environments.  
+
+**Tools that could be used:**
+- **GitHub Actions**: Automates workflows for testing, building, and deployment.  
+- **Docker**: Ensures consistent environments across development, testing, and production.  
+- **Kubernetes (optional)**: For scalable deployment and orchestration of containers.  
+- **Heroku/AWS/GCP**: As hosting providers for deployment.  
 
